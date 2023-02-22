@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/fixture_message.proto";
+import "proto/filter_message.proto";
+
+option go_package = "./proto";
+
+package fixtures;
+
+message CreateFixtureRequest {
+    Fixture fixture = 1;
+}
+
+message CreateFixtureResponse {
+    string id = 1;
+}
+
+message SearchFixtureRequest {
+    Filter filter = 1;
+}
+
+message SearchFixtureResponse {
+    Fixture fixture = 1;
+}
+
+service FixtureService {
+    rpc CreateFixture(CreateFixtureRequest) returns (CreateFixtureResponse) {};
+    rpc SearchFixture(SearchFixtureRequest) returns (stream SearchFixtureResponse) {};
+}
+

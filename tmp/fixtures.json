@@ -1,0 +1,52 @@
+{
+ "ID":  "3e7676db-4865-4b60-9ed5-3e76eb782ccd",
+ "hometeam":  "Leeds United",
+ "awayteam":  "Wolverhampton",
+ "score":  {
+  "localteam":  "2-0",
+  "awayteam":  "3-1",
+  "htscore":  "2-0",
+  "ftscore":  "0-0"
+ },
+ "time":  {
+  "date":  "2018-08-17",
+  "time":  "16:00:00",
+  "timezone":  "UTC"
+ },
+ "official":  "Howard Webb",
+ "stats":  {
+  "shots":  [
+   {
+    "total":  34,
+    "ongoal":  23
+   }
+  ],
+  "goals":  [
+   {
+    "scored":  5,
+    "assists":  5,
+    "conceded":  5,
+    "owngoals":  0
+   }
+  ]
+ },
+ "pitch":  {
+  "name":  "Wembley Stadium",
+  "commentary":  true,
+  "attendance":  80000,
+  "weather":  {
+   "code":  "Clouds",
+   "type":  "Scattered Clouds",
+   "clouds":  "",
+   "temp":  {
+    "temp":  8.120213,
+    "unit":  "FAHRENHEIT"
+   },
+   "wind":  {
+    "speed":  "17.22 m/s",
+    "degree":  156
+   },
+   "humidity":  "44%"
+  }
+ }
+}

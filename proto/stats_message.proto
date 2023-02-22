@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package fixtures;
+
+message Shots {
+    int32 total = 1;
+    int32 ongoal = 2;
+}
+
+message Goals {
+    int32 scored = 1;
+    int32 assists = 2;
+    int32 conceded = 3;
+    int32 owngoals = 4;
+}
+message Stats {
+    repeated Shots shots = 1;
+    repeated Goals goals = 2;
+}
+

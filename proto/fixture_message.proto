@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/time_message.proto";
+import "proto/scores_message.proto";
+import "proto/weather_message.proto";
+import "proto/stats_message.proto";
+
+option go_package = "./proto";
+
+package fixtures;
+
+
+message Fixture {
+    string ID = 1;
+    string hometeam = 2;
+    string awayteam = 3;
+    Score score = 4;
+    Time time = 5;
+    string official = 6;
+    Stats stats = 7;
+    Pitch pitch = 8;
+}
+
+message Pitch {
+    string name = 1;
+    bool commentary = 2;
+    int32 attendance = 3;
+    Weather weather = 4;
+}
+

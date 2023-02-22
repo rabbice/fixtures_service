@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package fixtures;
+
+message Time {
+    string date = 1;
+    string time = 2;
+    string timezone = 3;
+}

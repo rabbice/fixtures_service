@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package fixtures;
+
+
+
+message Weather {
+    string code = 1;
+    string type = 2;
+    string clouds = 4;
+    Temp temp = 5;
+    Wind wind = 6;
+    string humidity = 7;
+}
+
+message Temp {
+    float temp = 1;
+    enum Unit {
+        FAHRENHEIT = 0;
+        CELSIUS = 1;
+    }
+    Unit unit = 2;
+}
+
+message Wind {
+    string speed = 1;
+    int32 degree = 2;
+}

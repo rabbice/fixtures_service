@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package fixtures;
+
+message Score {
+    string localteam = 1;
+    string awayteam = 2;
+    string htscore = 3;
+    string ftscore = 4;
+}
