@@ -9,6 +9,9 @@ import (
 
 	pb "github.com/rabbice/fixturesbook/pb"
 	"github.com/rabbice/fixturesbook/sample"
+	"go.opencensus.io/examples/exporter"
+	"go.opencensus.io/plugin/ocgrpc"
+	"go.opencensus.io/stats/view"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
@@ -70,11 +73,18 @@ func searchFixture(fixtureClient pb.FixtureServiceClient, filter *pb.Filter) {
 }
 
 func main() {
+
+	view.RegisterExporter(&exporter.PrintExporter{})
+
+	if err := view.Register(ocgrpc.DefaultClientViews...); err != nil {
+		log.Fatal(err)
+	}
+
 	serverAddress := flag.String("address", "", "the server address")
 	flag.Parse()
 	log.Printf("dialing server: %s", *serverAddress)
 
-	conn, err := grpc.Dial(*serverAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial(*serverAddress, grpc.WithStatsHandler(&ocgrpc.ClientHandler{}), grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("cannot dial server: %v", err)
 	}
